@@ -13,56 +13,37 @@ package basicimplementation
 //
 //	true if `s` and `t` are anagrams, false otherwise.
 //
-// See my solution on LeetCode: https://leetcode.com/problems/valid-anagram/solutions/6000641/using-frequency-map-go
+// See my solution on LeetCode: https://leetcode.com/problems/valid-anagram/solutions/6009380/beats-100-in-go-time-o-n-space-o-1
 func IsAnagram(s string, t string) bool {
+	// Create an array to store the frequency of each letter
+	charFrequency := [26]int{}
 
-	if len(s) != len(t) {
-		return false
+	// Count the frequency of each character in string s
+	for _, char := range s {
+		letter := byte(char)
+		charFrequency[charPositionInAlphabet(letter)]++
 	}
 
-	sChars := getStringCharFrequency(s)
-
+	// Decrement the frequency for each character in string t
+	// If any frequency becomes negative, t has more of that character than s
 	for _, char := range t {
 		letter := byte(char)
-		if sChars[letter] <= 0 {
+		letterPosition := charPositionInAlphabet(letter)
+		charFrequency[letterPosition]--
+		if charFrequency[letterPosition] < 0 {
 			return false
 		}
-		decreaseCharFrequency(sChars, letter)
 	}
-
+	// If we've made it through both strings without returning false,
+	// the strings are anagrams
 	return true
 }
 
-// decreaseCharFrequency decrements the frequency of a character in a given character frequency map.
-//
-// Parameters:
-//
-//	charMap: The character frequency map.
-//	char: The character to decrement.
-func decreaseCharFrequency(charMap map[byte]int, char byte) {
-	if count, ok := charMap[char]; ok {
-		if count > 1 {
-			charMap[char]--
-		} else {
-			delete(charMap, char)
-		}
-	}
-}
-
-// getStringCharFrequency calculates the frequency of each character in a given string.
-//
-// Parameters:
-//
-//	s: The input string.
-//
-// Returns:
-//
-//	A map containing the frequency of each character in the string.
-func getStringCharFrequency(s string) map[byte]int {
-	availableChars := make(map[byte]int)
-	for _, char := range s {
-		letter := byte(char)
-		availableChars[letter]++
-	}
-	return availableChars
+// charPositionInAlphabet calculates the zero-based position of a lowercase letter in the alphabet.
+// For example, 'a' returns 0, 'b' returns 1, etc.
+// This function assumes that the input is a lowercase English letter.
+func charPositionInAlphabet(char byte) int {
+	// Subtract the ASCII value of 'a' (97) to get the position
+	// 'a' - 'a' = 0, 'b' - 'a' = 1, etc.
+	return int(char) - 97
 }
