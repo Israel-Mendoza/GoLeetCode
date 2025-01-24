@@ -1,6 +1,6 @@
 package topinterview150
 
-func removeDuplicates(nums []int) int {
+func RemoveDuplicates(nums []int) int {
 	if len(nums) < 2 {
 		return len(nums)
 	}
