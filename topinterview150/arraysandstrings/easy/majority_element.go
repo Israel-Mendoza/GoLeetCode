@@ -1,4 +1,4 @@
-package arraysandstrings
+package easy
 
 func MajorityElement(nums []int) int {
 

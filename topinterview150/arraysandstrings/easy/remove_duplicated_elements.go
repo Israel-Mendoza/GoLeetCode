@@ -1,4 +1,4 @@
-package arraysandstrings
+package easy
 
 func RemoveDuplicates(nums []int) int {
 	if len(nums) < 2 {

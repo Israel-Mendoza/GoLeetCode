@@ -1,4 +1,4 @@
-package arraysandstrings
+package easy
 
 var romanIntegerMap = map[byte]int{
 	'I': 1,

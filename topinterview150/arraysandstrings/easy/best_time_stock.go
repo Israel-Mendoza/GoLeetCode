@@ -1,4 +1,4 @@
-package arraysandstrings
+package easy
 
 import "math"
 

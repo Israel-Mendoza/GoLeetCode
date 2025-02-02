@@ -1,4 +1,4 @@
-package arraysandstrings
+package easy
 
 func LengthOfLastWord(s string) int {
 	foundLetter := false

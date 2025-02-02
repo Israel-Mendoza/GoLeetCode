@@ -1,4 +1,4 @@
-package arraysandstrings
+package easy
 
 func RemoveElement(nums []int, val int) int {
 	availableIndex := 0
