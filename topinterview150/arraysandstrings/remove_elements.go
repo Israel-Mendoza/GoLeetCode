@@ -1,4 +1,4 @@
-package topinterview150
+package arraysandstrings
 
 func RemoveElement(nums []int, val int) int {
 	availableIndex := 0

@@ -1,4 +1,4 @@
-package topinterview150
+package arraysandstrings
 
 func MajorityElement(nums []int) int {
 

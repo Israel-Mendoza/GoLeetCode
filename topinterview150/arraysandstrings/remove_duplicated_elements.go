@@ -1,4 +1,4 @@
-package topinterview150
+package arraysandstrings
 
 func RemoveDuplicates(nums []int) int {
 	if len(nums) < 2 {

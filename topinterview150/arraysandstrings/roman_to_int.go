@@ -1,4 +1,4 @@
-package topinterview150
+package arraysandstrings
 
 var romanIntegerMap = map[byte]int{
 	'I': 1,

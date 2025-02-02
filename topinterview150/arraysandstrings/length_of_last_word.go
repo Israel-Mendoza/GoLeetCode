@@ -1,4 +1,4 @@
-package topinterview150
+package arraysandstrings
 
 func LengthOfLastWord(s string) int {
 	foundLetter := false
